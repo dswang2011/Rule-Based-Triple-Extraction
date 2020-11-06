@@ -1,0 +1,60 @@
+['The', 'encapsulation', 'of', 'rifampicin', 'leads', 'to', 'a', 'reduction', 'of', 'the', 'Mycobacterium', 'smegmatis', 'inside', 'macrophages', '.']
+['det', 'nsubj', 'case', 'nmod', 'ROOT', 'case', 'det', 'nmod', 'case', 'det', 'compound', 'nmod', 'case', 'nmod', 'punct']
+['DT', 'NN', 'IN', 'NN', 'VBZ', 'TO', 'DT', 'NN', 'IN', 'DT', 'NN', 'NN', 'IN', 'NNS', '.']
+
+rules: ['det', 'nsubj', 'case', 'nmod', CAUSE_LABEL , 'det', 'nmod', 'case', 'det', 'compound', 'nmod', 'case'] 	
+rule1 = ['DT', 'NN', 'IN', 'NN', CAUSE_LABEL, 'DT', 'NN', 'IN', 'DT', 'NN', 'NN', 'IN']
+
+ans = [[0,1,2,3],[9,10]]
+
+
+['The', 'Norwalk', 'virus', 'is', 'the', 'prototype', 'virus', 'that', 'causes', 'epidemic', 'gastroenteritis', 'infecting', 'predominantly', 'older', 'children', 'and', 'adults', '.']
+['det', 'compound', 'nsubj', 'cop', 'det', 'compound', 'ROOT', 'nsubj', 'acl:relcl', 'amod', 'dobj', 'acl', 'advmod', 'amod', 'dobj', 'cc', 'conj', 'punct']
+['DT', 'NNP', 'NN', 'VBZ', 'DT', 'NN', 'NN', 'WDT', 'VBZ', 'JJ', 'NN', 'VBG', 'RB', 'JJR', 'NNS', 'CC', 'NNS', '.']
+
+rules: 'det', 'compound', 'nsubj', 'cop', 'det', 'compound', 'ROOT','nsubj', CAUSE_LABEL, 'amod', 'dobj', 'acl'	=> 0,1,2 + 9,10
+
+rule2 = ['DT', 'NNP', 'NN', 'VBZ', 'DT', 'NN', 'NN', 'WDT', CAUSE_LABEL , 'JJ', 'NN', 'VBG']
+
+
+
+['It', 'is', 'widely', 'agreed', 'that', 'the', 'exposure', 'to', 'ambient', 'air', 'pollution', 'may', 'cause', 'serious', 'respiratory', 'illnesses', 'and', 'that', 'weather', 'conditions', 'may', 'also', 'contribute', 'to', 'the', 'seriousness', '.']
+['nsubjpass', 'auxpass', 'advmod', 'ROOT', 'mark', 'det', 'nsubj', 'case', 'amod', 'compound', 'nmod', 'aux', 'ccomp', 'amod', 'amod', 'dobj', 'cc', 'mark', 'compound', 'nsubj', 'aux', 'advmod', 'conj', 'case', 'det', 'nmod', 'punct']
+['PRP', 'VBZ', 'RB', 'VBN', 'IN', 'DT', 'NN', 'TO', 'JJ', 'NN', 'NN', 'MD', 'VB', 'JJ', 'JJ', 'NNS', 'CC', 'IN', 'NN', 'NNS', 'MD', 'RB', 'VB', 'TO', 'DT', 'NN', '.']
+
+'det', 'nsubj', 'case', 'amod', 'compound', 'nmod', 'aux', CAUSE_LABEL, 'amod', 'amod', 'dobj', 'cc'	=> 1,2,3,4, 5, + 8,9,10
+
+rule3 = ['DT', 'NN', 'TO', 'JJ', 'NN', 'NN', 'MD', CAUSE_LABEL , 'JJ', 'JJ', 'NNS', 'CC']
+
+
+['In', 'this', 'report', ',', 'ribavirin', 'was', 'shown', 'to', 'inhibit', 'SARS', 'coronavirus', 'replication', 'in', 'five', 'different', 'cell', 'types', 'of', 'animal', 'or', 'human', 'origin', 'at', 'therapeutically', 'achievable', 'concentrations', '.']
+['case', 'det', 'nmod', 'punct', 'nsubjpass', 'auxpass', 'ROOT', 'mark', 'xcomp', 'compound', 'compound', 'dobj', 'case', 'nummod', 'amod', 'compound', 'nmod', 'case', 'compound', 'cc', 'conj', 'nmod', 'case', 'advmod', 'amod', 'nmod', 'punct']
+['IN', 'DT', 'NN', ',', 'NNP', 'VBD', 'VBN', 'TO', 'VB', 'NN', 'NN', 'NN', 'IN', 'CD', 'JJ', 'NN', 'NNS', 'IN', 'NN', 'CC', 'JJ', 'NN', 'IN', 'RB', 'JJ', 'NNS', '.']
+
+rule4 = ['nsubjpass', 'auxpass', 'ROOT', 'mark', CAUSE_LABEL, 'compound', 'compound','dobj']	
+ans = [[0],4,[5,6]]
+
+rule4 = ['NNP', 'VBD', 'VBN', 'TO', CAUSE_LABEL, 'NN', 'NN', 'NN','IN']
+
+
+['Chronic', 'hepatitis', 'B', 'virus', 'infection', 'is', 'a', 'major', 'cause', 'of', 'chronic', 'hepatitis', ',', 'cirrhosis', ',', 'and', 'hepatocellular', 'carcinoma', 'worldwide', '.']
+['amod', 'compound', 'compound', 'compound', 'nsubj', 'cop', 'det', 'amod', 'ROOT', 'case', 'amod', 'nmod', 'punct', 'conj', 'punct', 'cc', 'amod', 'conj', 'advmod', 'punct']
+['JJ', 'NN', 'NN', 'NN', 'NN', 'VBZ', 'DT', 'JJ', 'NN', 'IN', 'JJ', 'NN', ',', 'NN', ',', 'CC', 'JJ', 'NN', 'RB', '.']
+
+rule5 = ['amod', 'compound', 'compound', 'compound', 'nsubj', 'cop', 'det', 'amod', CAUSE_LABEL, 'amod', 'nmod', 'punct', 'conj', 'punct', 'cc', 'amod', 'conj','advmod']
+rule52 = ['amod', 'compound', 'compound', 'compound', 'nsubj', 'cop', 'det', 'amod', CAUSE_LABEL, 'amod', 'nmod', 'punct', 'conj', 'punct', 'cc', 'amod', 'conj','punct']
+ans = [[0,1,2,3,4],8, [9,10],[12],[15,16]]
+
+
+rule5 = ['JJ', 'NN', 'NN', 'NN', 'NN', 'VBZ', 'DT', 'JJ', CAUSE_LABEL, 'JJ', 'NN', ',', 'NN', ',', 'CC', 'JJ', 'NN', 'RB']
+rule5 = ['JJ', 'NN', 'NN', 'NN', 'NN', 'VBZ', 'DT', 'JJ', CAUSE_LABEL, 'JJ', 'NN', ',', 'NN', ',', 'CC', 'JJ', 'NN', '.']
+
+
+
+
+
+
+
+
+
+
