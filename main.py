@@ -45,7 +45,7 @@ def extract_from_folder(args):
 
 if __name__ == '__main__':
 	parser = argparse.ArgumentParser(description='run the main extraction.')
-	parser.add_argument('--data_path', default="/home/vbd667/code/rule-based-extraction/causaly_assignment_Wang_Dongsheng")
+	parser.add_argument('--data_path', default="/home/vbd667/code/rule-based-extraction/PMD")
 	parser.add_argument('--corenlp_path', default="/home/vbd667/resources/stanford-corenlp-full-2018-10-05")
 	parser.add_argument('--output_file', default = "spo_output.txt")
 	parser.add_argument('--run_mode', default = "test")	# or extract
